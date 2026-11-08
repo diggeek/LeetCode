@@ -28,7 +28,16 @@
 // n = 9 since there are 9 numbers, so all numbers are in the range [0,9].
 // 8 is the missing number in the range since it does not appear in nums
 
-
+#ifdef EFFECTIVE
+    int missingNumber(vector<int>& nums) {
+        int sum = 0;
+        for (int num : nums) {
+            sum += num;
+        }
+        // sum of an arithmetic progression
+        return nums.size()*(nums.size()+1)/2 - sum;
+    }
+#else
 int missingNumber(std::vector<int>& nums) {
     std::sort(nums.begin(), nums.end());
     
@@ -52,6 +61,7 @@ int missingNumber(std::vector<int>& nums) {
     }
     return nums[mid] == mid ? mid+1 : mid;
 }
+#endif
 
 
 int main(void) {
