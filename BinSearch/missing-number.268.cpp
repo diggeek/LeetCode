@@ -45,21 +45,21 @@ int missingNumber(std::vector<int>& nums) {
         return nums.size();
     }
 
-    int l = 0;
-    int r = nums.size() - 1;
+    int l = -1;
+    int r = nums.size();
     int mid = (l+r) / 2;
-    while (l < r) {
+    while (r - l > 1) {
+        mid = (l+r) / 2;
         printf("mid = %d\n", mid);
         if (nums[mid] == mid) {
-            l = mid + 1;
+            l = mid;
             printf("l = %d\n", l);
         } else {
-            r = mid - 1;
+            r = mid;
             printf("r = %d\n", r);
         }
-        mid = (l+r) / 2;
     }
-    return nums[mid] == mid ? mid+1 : mid;
+    return r;
 }
 #endif
 
