@@ -24,7 +24,3 @@ foreach(FILE_PATH ${TASK_FILES})
     get_filename_component(TARGET_NAME ${FILE_PATH} NAME_WE)
     add_executable(${TARGET_NAME} ${FILE_PATH})
 endforeach()
-
-
-#cmake -DSANITIZER_MODE=MSAN ../
-#cmake --build ./ --target search_insert_position
